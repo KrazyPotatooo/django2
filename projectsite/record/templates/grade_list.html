@@ -2,27 +2,29 @@
 {% load static %}
 
 {% block content %}
-<a href="{% url 'enrollment-add' %}" class="custom-btn btn btn-primary">Add New Enrollment</a><br>
+<a href="{% url 'grade-add' %}" class="custom-btn btn btn-primary">Add New Grade</a><br>
 <section class="trainers-container">
     <table class="styled-table">
       <tbody>
         <tr>
           <th>Student</th>
-          <th>Course</th>
+          <th>Assignment</th>
+          <th>Score</th>
           <th>Action</th>
         </tr>
-        {% for enrollment in object_list %}
+        {% for grade in object_list %}
         <tr>
-          <td>{{ enrollment.StudentID.FirstName }} {{ enrollment.StudentID.LastName }}</td>
-          <td>{{ enrollment.CourseID.CourseName }}</td>
+          <td>{{ grade.StudentID.FirstName }} {{ grade.StudentID.LastName }}</td>
+          <td>{{ grade.AssignmentID.AssignmentName }}</td>
+          <td>{{ grade.Score }}</td>
           <td>
-            <a href="enrollment_list/{{ enrollment.id }}" >Edit</a> |
-            <a href="enrollment_list/{{ enrollment.id }}/delete" >Delete</a>
+            <a href="grade_list/{{ grade.id }}" >Edit</a> |
+            <a href="grade_list/{{ grade.id }}/delete" >Delete</a>
           </td>
         </tr>
         {% empty %}
                 <tr>
-                <td colspan="3" style="text-align: center;">
+                <td colspan="4" style="text-align: center;">
                     <p>No Records Found</p>
                 </td>
                 </tr>

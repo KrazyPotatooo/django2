@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-<a href="{% url 'course-add' %}" class="btn btn-outline-primary">Add New Course</a><br>
-<section class="courses-container">
+<a href="{% url 'course-add' %}" class="custom-btn btn btn-primary">Add New Course</a><br>
+<section class="trainers-container">
     <table class="styled-table">
       <tbody>
         <tr>
@@ -18,8 +18,8 @@
           <td>{{ course.Department }}</td>
           <td>{{ course.ProfessorID }}</td>
           <td>
-            <a href="{% url 'course-edit' course.id %}" >Edit</a> |
-            <a href="{% url 'course-delete' course.id %}" >Delete</a>
+            <a href="course_list/{{ course.id }}" >Edit</a> |
+            <a href="course_list/{{ course.id }}/delete" >Delete</a>
           </td>
         </tr>
         {% empty %}

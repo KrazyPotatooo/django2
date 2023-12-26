@@ -16,7 +16,7 @@ class Command(BaseCommand):
 
         # Create professors
         professors = []
-        for _ in range(5):
+        for _ in range(10):
             professor = Professor(
                 FirstName=fake.first_name(),
                 LastName=fake.last_name(),
