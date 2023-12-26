@@ -1,0 +1,38 @@
+c:\Us{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'course-add' %}" class="btn btn-outline-primary">Add New Course</a><br>
+<section class="courses-container">
+    <table class="styled-table">
+      <tbody>
+        <tr>
+          <th>Course Name</th>
+          <th>Department</th>
+          <th>Professor</th>
+          <th>Action</th>
+        </tr>
+        {% for course in object_list %}
+        <tr>
+          <td>{{ course.CourseName }}</td>
+          <td>{{ course.Department }}</td>
+          <td>{{ course.ProfessorID }}</td>
+          <td>
+            <a href="{% url 'course-edit' course.id %}" >Edit</a> |
+            <a href="{% url 'course-delete' course.id %}" >Delete</a>
+          </td>
+        </tr>
+        {% empty %}
+                <tr>
+                <td colspan="4" style="text-align: center;">
+                    <p>No Records Found</p>
+                </td>
+                </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</section>
+<div>
+    {% include 'includes/pagination.html' %}
+</div> 
+{% endblock %}

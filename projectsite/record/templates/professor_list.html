@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'professor-add' %}" class="btn btn-outline-primary">Add New Professor</a><br>
+<section class="professors-container">
+    <table class="styled-table">
+      <tbody>
+        <tr>
+          <th>Professor Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+        {% for professor in object_list %}
+        <tr>
+          <td>{{ professor.FirstName }} {{ professor.LastName }}</td>
+          <td>{{ professor.Email }}</td>
+          <td>{{ professor.Department }}</td>
+          <td>
+            <a href="{% url 'professor-edit' professor.id %}" >Edit</a> |
+            <a href="{% url 'professor-delete' professor.id %}" >Delete</a>
+          </td>
+        </tr>
+        {% empty %}
+                <tr>
+                <td colspan="4" style="text-align: center;">
+                    <p>No Records Found</p>
+                </td>
+                </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</section>
+<div>
+    {% include 'includes/pagination.html' %}
+</div> 
+{% endblock %}
