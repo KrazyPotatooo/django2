@@ -16,8 +16,8 @@
           <td>{{ enrollment.StudentID.FirstName }} {{ enrollment.StudentID.LastName }}</td>
           <td>{{ enrollment.CourseID.CourseName }}</td>
           <td>
-            <a href="enrollment_list/{{ enrollment.id }}" >Edit</a> |
-            <a href="enrollment_list/{{ enrollment.id }}/delete" >Delete</a>
+            <a href="{% url 'enrollment-update' enrollment.id %}">Edit</a> |
+            <a href="{% url 'enrollment-delete' enrollment.id %}">Delete</a>
           </td>
         </tr>
         {% empty %}

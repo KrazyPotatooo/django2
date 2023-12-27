@@ -18,8 +18,8 @@
           <td>{{ grade.AssignmentID.AssignmentName }}</td>
           <td>{{ grade.Score }}</td>
           <td>
-            <a href="grade_list/{{ grade.id }}" >Edit</a> |
-            <a href="grade_list/{{ grade.id }}/delete" >Delete</a>
+            <a href="{% url 'grade-update' grade.GradeID %}">Edit</a> |
+            <a href="{% url 'grade-delete' grade.GradeID %}">Delete</a>
           </td>
         </tr>
         {% empty %}

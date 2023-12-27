@@ -24,6 +24,7 @@ class EnrollmentForm(ModelForm):
         fields = "__all__"
 
 class AssignmentForm(ModelForm):
+    Deadline = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     class Meta:
         model = Assignment
         fields = "__all__"

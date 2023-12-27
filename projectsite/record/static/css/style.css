@@ -209,7 +209,7 @@ footer {
   width: 25%;
   max-width: 400px;
   height: 50%;
-  max-height: 480;
+  max-height: 480px;
   box-sizing: border-box;
 }
 
@@ -267,231 +267,23 @@ footer {
   display: inline-block;
 }
 
-.card #card-number {
-  color: grey;
-}
 
 .card .card-stats th {
   text-align: right;
 }
 
 /*CARD RARITIES*/
-.card-rarity .rarity {
-  display: inline-block;
-}
-
-.card-rarity #common-text {
-  color: #b69121;
-}
-
-.card-rarity #uncommon-text {
-  color: #208b3a;
-}
-
-.card-rarity #rare-text {
-  color: #8b0000;
-}
-
-/*CARD TYPES*/
-/*card background and border*/
 .card-type,
-#normal {
-  background-color: #fff5d2;
-  border: solid 10px #c0b89e;
-}
-
-.card-type,
-#fire {
-  background-color: #e6bfb3;
-  border: solid 10px #bb340e;
-}
-
-.card-type,
-#fighting {
-  background-color: #dda7a8;
-  border: solid 10px #881415;
-}
-
-.card-type,
-#water {
-  background-color: #b7c3e4;
-  border: solid 10px #3355b6;
-}
-
-.card-type,
-#flying {
-  background-color: #b0d3e4;
-  border: solid 10px #2e6a87;
-}
-
-.card-type,
-#grass {
+#professor {
   background-color: #a8dfa7;
   border: solid 10px #247123;
 }
-
-.card-type,
-#poison {
-  background-color: #e2b4e0;
-  border: solid 10px #6f006c;
-}
-
-.card-type,
-#electric {
-  background-color: #eadcb7;
-  border: solid 10px #c4a349;
-}
-
-.card-type,
-#ground {
-  background-color: #ddbba0;
-  border: solid 10px #6e380c;
-}
-
-.card-type,
-#psychic {
-  background-color: #e5b7d4;
-  border: solid 10px #a91074;
-}
-
-.card-type,
-#rock {
-  background-color: #e2d2a7;
-  border: solid 10px #876c27;
-}
-
-.card-type,
-#ice {
-  background-color: #bae6e0;
-  border: solid 10px #339085;
-}
-
-.card-type,
-#bug {
-  background-color: #d0e5b0;
-  border: solid 10px #445826;
-}
-
-.card-type,
-#dragon {
-  background-color: #bfb8ea;
-  border: solid 10px #3d327d;
-}
-
-.card-type,
-#ghost {
-  background-color: #c3bce3;
-  border: solid 10px #614dbc;
-}
-
-.card-type,
-#dark {
-  background-color: #e7bcb6;
-  border: solid 10px #3d1a15;
-}
-
-.card-type,
-#steel {
-  background-color: #bcd5ea;
-  border: solid 10px #2d5171;
-}
-
-.card-type,
-#fairy {
-  background-color: #eac3d8;
-  border: solid 10px #cd1179;
-}
-
 /*image backgroung*/
 .card-image,
-#normal-img {
+#professor-img {
   background: radial-gradient(circle, transparent, #c0b89e);
 }
 
-.card-image,
-#fire-img {
-  background: radial-gradient(circle, transparent, #bb340e);
-}
-
-.card-image,
-#fighting-img {
-  background: radial-gradient(circle, transparent, #881415);
-}
-
-.card-image,
-#water-img {
-  background: radial-gradient(circle, transparent, #3355b6);
-}
-
-.card-image,
-#flying-img {
-  background: radial-gradient(circle, transparent, #2e6a87);
-}
-
-.card-image,
-#grass-img {
-  background: radial-gradient(circle, transparent, #247123);
-}
-
-.card-image,
-#poison-img {
-  background: radial-gradient(circle, transparent, #6f006c);
-}
-
-.card-image,
-#electric-img {
-  background: radial-gradient(circle, transparent, #c4a349);
-}
-
-.card-image,
-#ground-img {
-  background: radial-gradient(circle, transparent, #6e380c);
-}
-
-.card-image,
-#psychic-img {
-  background: radial-gradient(circle, transparent, #a91074);
-}
-
-.card-image,
-#rock-img {
-  background: radial-gradient(circle, transparent, #876c27);
-}
-
-.card-image,
-#ice-img {
-  background: radial-gradient(circle, transparent, #339085);
-}
-
-.card-image,
-#bug-img {
-  background: radial-gradient(circle, transparent, #445826);
-}
-
-.card-image,
-#dragon-img {
-  background: radial-gradient(circle, transparent, #3d327d);
-}
-
-.card-image,
-#ghost-img {
-  background: radial-gradient(circle, transparent, #614dbc);
-}
-
-.card-image,
-#dark-img {
-  background: radial-gradient(circle, transparent, #3d1a15);
-}
-
-.card-image,
-#steel-img {
-  background: radial-gradient(circle, transparent, #2d5171);
-}
-
-.card-image,
-#fairy-img {
-  background: radial-gradient(circle, transparent, #cd1179);
-}
 
 /* Pagination */
 .pagination {

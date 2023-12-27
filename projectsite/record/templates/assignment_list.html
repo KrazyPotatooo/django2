@@ -18,8 +18,8 @@
           <td>{{ assignment.Deadline }}</td>
           <td>{{ assignment.CourseID.CourseName }}</td>
           <td>
-            <a href="assignment_list/{{ assignment.id }}" >Edit</a> |
-            <a href="assignment_list/{{ assignment.id }}/delete" >Delete</a>
+            <a href="{% url 'assignment-update' assignment.AssignmentID %}">Edit</a> |
+            <a href="{% url 'assignment-delete' assignment.AssignmentID %}">Delete</a>
           </td>
         </tr>
         {% empty %}

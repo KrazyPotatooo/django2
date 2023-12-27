@@ -18,8 +18,8 @@
           <td>{{ course.Department }}</td>
           <td>{{ course.ProfessorID }}</td>
           <td>
-            <a href="course_list/{{ course.id }}" >Edit</a> |
-            <a href="course_list/{{ course.id }}/delete" >Delete</a>
+            <a href="{% url 'course-update' course.CourseID %}">Edit</a> |
+            <a href="{% url 'course-delete' course.CourseID %}">Delete</a>
           </td>
         </tr>
         {% empty %}

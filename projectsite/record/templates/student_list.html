@@ -18,8 +18,8 @@
           <td>{{ student.LastName }}</td>
           <td>{{ student.Email }}</td>
           <td>
-            <a href="student_list/{{ student.id }}" >Edit</a> |
-            <a href="student_list/{{ student.id }}/delete" >Delete</a>
+            <a href="{% url 'student-update' student.StudentID %}">Edit</a> |
+            <a href="{% url 'student-delete' student.StudentID %}">Delete</a>
           </td>
         </tr>
         {% empty %}

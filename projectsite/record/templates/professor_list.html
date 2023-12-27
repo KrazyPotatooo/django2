@@ -3,36 +3,52 @@
 
 {% block content %}
 <a href="{% url 'professor-add' %}" class="custom-btn btn btn-primary">Add New Professor</a><br>
-<section class="trainers-container">
-    <table class="styled-table">
-      <tbody>
-        <tr>
-          <th>Professor Name</th>
-          <th>Email</th>
-          <th>Department</th>
-          <th>Action</th>
-        </tr>
-        {% for professor in object_list %}
-        <tr>
-          <td>{{ professor.FirstName }} {{ professor.LastName }}</td>
-          <td>{{ professor.Email }}</td>
-          <td>{{ professor.Department }}</td>
-          <td>
-            <a href="professor_list/{{ professor.id }}" >Edit</a> |
-            <a href="professor_list/{{ professor.id }}/delete" >Delete</a>
-          </td>
-        </tr>
-        {% empty %}
-                <tr>
-                <td colspan="4" style="text-align: center;">
-                    <p>No Records Found</p>
+<section class="cards-container">
+  <!-- Display Professor Cards -->
+  {% for professor in object_list %}
+    <div class="card-box">
+        <div class="card">
+            <div class="card-type" id="professor">
+                <div class="card-image" id="professor-img">
+                    <!-- Check if the professor has a profile image -->
+                    {% if professor.ProfileImage %}
+                        <img src="{{ professor.ProfileImage.url }}" alt="{{ professor.LastName }} {{ professor.FirstName }} Image">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                </div>
+                <div class="card-name">
+                    <h2 class="sbs"> {{ professor.LastName }} {{ professor.FirstName }}</h2>
+                    <hr />
+                </div>
+                <table class="card-stats">
+            <tbody>
+              <tr>
+                <th>Email:</th>
+                <td>{{ professor.Email }}</td>
+              </tr>
+              <tr>
+                <th>Department:</th>
+                <td>{{ professor.Department }}</td>
+              </tr>
+              <!-- Add more professor fields as needed -->
+              <tr>
+                <th>Action:</th>
+                <td>
+                  <a href="{% url 'professor-update' professor.ProfessorID %}" >Edit</a> |
+                  <a href="{% url 'professor-delete' professor.ProfessorID %}" >Delete</a>
                 </td>
-                </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-</section>
-<div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr />
+      </div>
+    </div>
+  {% endfor %}
+  <div>
     {% include 'includes/pagination.html' %}
-</div> 
+  </div>
+</section>
+
 {% endblock %}

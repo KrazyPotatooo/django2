@@ -4,8 +4,8 @@ from django.shortcuts import render
 # myapp/views.py
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
-from .models import Professor, Course, Student, Enrollment, Assignment, Grade
-from .forms import ProfessorForm,CourseForm,StudentForm,AssignmentForm,GradeForm,EnrollmentForm
+from record.models import Professor, Course, Student, Enrollment, Assignment, Grade
+from record.forms import ProfessorForm,CourseForm,StudentForm,AssignmentForm,GradeForm,EnrollmentForm
 from django.urls import reverse_lazy
 
 class HomePageView(ListView):
