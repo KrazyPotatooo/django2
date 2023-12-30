@@ -4,169 +4,147 @@ from django.shortcuts import render
 # myapp/views.py
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
-from record.models import Professor, Course, Student, Enrollment, Assignment, Grade
-from record.forms import ProfessorForm,CourseForm,StudentForm,AssignmentForm,GradeForm,EnrollmentForm
+from record.models import artist, duration, title, albums, date_added
+from record.forms import artistForm,durationForm,titleForm,date_addedForm,albumsForm
 from django.urls import reverse_lazy
 
+
+
+
+
 class HomePageView(ListView):
-    model = Student
+    model = title
     context_object_name = 'home'
     template_name = "base.html"
     def get_context_data(self, **kwargs):
        context = super().get_context_data(**kwargs)
        return context
-class ProfessorListView(ListView):
-    model = Professor
-    template_name = 'professor_list.html'
-    context_object_name = 'professors'
+class artistListView(ListView):
+    model = artist
+    template_name = 'artist_list.html'
+    context_object_name = 'artists'
     paginate_by = 5
 
     def get_queryset(self):
-        return Professor.objects.all()
+        return artist.objects.all()
     
-class ProfessorCreateView(CreateView):
-    model = Professor
-    form_class = ProfessorForm
-    template_name = 'professor_add.html'
-    success_url = reverse_lazy('professor-list')
+class artistCreateView(CreateView):
+    model = artist
+    form_class = artistForm
+    template_name = 'artist_add.html'
+    success_url = reverse_lazy('artist-list')
     
-class ProfessorUpdateView(UpdateView):
-    model = Professor
-    form_class = ProfessorForm
-    template_name = 'professor_edit.html'
-    success_url = reverse_lazy('professor-list')
+class artistUpdateView(UpdateView):
+    model = artist
+    form_class = artistForm
+    template_name = 'artist_edit.html'
+    success_url = reverse_lazy('artist-list')
     
-class ProfessorDeleteView(DeleteView):
-    model = Professor
-    template_name = 'professor_del.html'
-    success_url = reverse_lazy('professor-list')  
+class artistDeleteView(DeleteView):
+    model = artist
+    template_name = 'artist_del.html'
+    success_url = reverse_lazy('artist-list')  
 
-class CourseListView(ListView):
-    model = Course
-    template_name = 'course_list.html'
-    context_object_name = 'courses'
+class durationListView(ListView):
+    model = duration
+    template_name = 'duration_list.html'
+    context_object_name = 'durations'
     paginate_by = 5
 
     def get_queryset(self):
-        return Course.objects.all()
+        return duration.objects.all()
     
-class CourseCreateView(CreateView):
-    model = Course
-    form_class = CourseForm
-    template_name = 'course_add.html'
-    success_url = reverse_lazy('course-list')
+class durationCreateView(CreateView):
+    model = duration
+    form_class = durationForm
+    template_name = 'duration_add.html'
+    success_url = reverse_lazy('duration-list')
     
-class CourseUpdateView(UpdateView):
-    model = Course
-    form_class = CourseForm
-    template_name = 'course_edit.html'
-    success_url = reverse_lazy('course-list')
+class durationUpdateView(UpdateView):
+    model = duration
+    form_class = durationForm
+    template_name = 'duration_edit.html'
+    success_url = reverse_lazy('duration-list')
     
-class CourseDeleteView(DeleteView):
-    model = Course
-    template_name = 'course_del.html'
-    success_url = reverse_lazy('course-list')  
+class durationDeleteView(DeleteView):
+    model = duration
+    template_name = 'duration_del.html'
+    success_url = reverse_lazy('duration-list')  
 
-class StudentListView(ListView):
-    model = Student
-    template_name = 'student_list.html'
-    context_object_name = 'students'
+class titleListView(ListView):
+    model = title
+    template_name = 'title_list.html'
+    context_object_name = 'titles'
     paginate_by = 5
 
     def get_queryset(self):
-        return Student.objects.all()
+        return title.objects.all()
 
-class StudentCreateView(CreateView):
-    model = Student
-    form_class = StudentForm
-    template_name = 'student_add.html'
-    success_url = reverse_lazy('student-list')
+class titleCreateView(CreateView):
+    model = title
+    form_class = titleForm
+    template_name = 'title_add.html'
+    success_url = reverse_lazy('title-list')
     
-class StudentUpdateView(UpdateView):
-    model = Student
-    form_class = StudentForm
-    template_name = 'student_edit.html'
-    success_url = reverse_lazy('student-list')
+class titleUpdateView(UpdateView):
+    model = title
+    form_class = titleForm
+    template_name = 'title_edit.html'
+    success_url = reverse_lazy('title-list')
     
-class StudentDeleteView(DeleteView):
-    model = Student
-    template_name = 'student_del.html'
-    success_url = reverse_lazy('student-list')  
+class titleDeleteView(DeleteView):
+    model = title
+    template_name = 'title_del.html'
+    success_url = reverse_lazy('title-list')  
     
-class EnrollmentListView(ListView):
-    model = Enrollment
-    template_name = 'enrollment_list.html'
-    context_object_name = 'enrollments'
+class albumsListView(ListView):
+    model = albums
+    template_name = 'albums_list.html'
+    context_object_name = 'albumss'
     paginate_by = 5
 
     def get_queryset(self):
-        return Enrollment.objects.all()
+        return albums.objects.all()
     
-class EnrollmentCreateView(CreateView):
-    model = Enrollment
-    form_class = EnrollmentForm
-    template_name = 'enrollment_add.html'
-    success_url = reverse_lazy('enrollment-list')
+class albumsCreateView(CreateView):
+    model = albums
+    form_class = albumsForm
+    template_name = 'albums_add.html'
+    success_url = reverse_lazy('albums-list')
     
-class EnrollmentUpdateView(UpdateView):
-    model = Enrollment
-    form_class = EnrollmentForm
-    template_name = 'enrollment_edit.html'
-    success_url = reverse_lazy('enrollment-list')
+class albumsUpdateView(UpdateView):
+    model = albums
+    form_class = albumsForm
+    template_name = 'albums_edit.html'
+    success_url = reverse_lazy('albums-list')
     
-class EnrollmentDeleteView(DeleteView):
-    model = Enrollment
-    template_name = 'enrollment_del.html'
-    success_url = reverse_lazy('enrollment-list') 
+class albumsDeleteView(DeleteView):
+    model = albums
+    template_name = 'albums_del.html'
+    success_url = reverse_lazy('albums-list') 
 
-class AssignmentListView(ListView):
-    model = Assignment
-    template_name = 'assignment_list.html'
-    context_object_name = 'assignments'
+class date_addedListView(ListView):
+    model = date_added
+    template_name = 'date_added_list.html'
+    context_object_name = 'date_added'
     paginate_by = 5
 
     def get_queryset(self):
-        return Assignment.objects.all()
+        return date_added.objects.all()
     
-class AssignmentCreateView(CreateView):
-    model = Assignment
-    form_class = AssignmentForm
-    template_name = 'assignment_add.html'
-    success_url = reverse_lazy('assignment-list')
+class date_addedCreateView(CreateView):
+    model = date_added
+    form_class = date_addedForm
+    template_name = 'date_added_add.html'
+    success_url = reverse_lazy('date_added-list')
     
-class AssignmentUpdateView(UpdateView):
-    model = Assignment
-    form_class = AssignmentForm
-    template_name = 'assignment_add.html'
-    success_url = reverse_lazy('assignment-list')
+class date_addedUpdateView(UpdateView):
+    model = date_added
+    form_class = date_addedForm
+    template_name = 'date_added_add.html'
+    success_url = reverse_lazy('date_added-list')
     
-class AssignmentDeleteView(DeleteView):
-    model = Assignment
-    template_name = 'assignment_del.html'
-    success_url = reverse_lazy('assignment-list') 
-
-class GradeListView(ListView):
-    model = Grade
-    template_name = 'grade_list.html'
-    context_object_name = 'grades'
-    paginate_by = 5
-
-    def get_queryset(self):
-        return Grade.objects.all()
-    
-class GradeCreateView(CreateView):
-    model = Grade
-    form_class = GradeForm
-    template_name = 'grade_add.html'
-    success_url = reverse_lazy('grade-list')
-    
-class GradeUpdateView(UpdateView):
-    model = Grade
-    form_class = GradeForm
-    template_name = 'grade_edit.html'
-    success_url = reverse_lazy('grade-list')
-    
-class GradeDeleteView(DeleteView):
-    model = Grade
-    template_name = 'grade_del.html'
-    success_url = reverse_lazy('grade-list') 
+class date_addedDeleteView(DeleteView):
+    model = date_added
+    template_name = 'date_added_del.html'
+    success_url = reverse_lazy('date_added-list') 

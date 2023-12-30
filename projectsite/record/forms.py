@@ -1,35 +1,32 @@
 # myapp/forms.py
 from django.forms import ModelForm
 from django import forms
-from .models import Professor, Course, Student, Enrollment, Assignment, Grade
+from .models import artist, duration, title, albums, date_added
 
-class ProfessorForm(ModelForm):
+class artistForm(ModelForm):
     class Meta:
-        model = Professor
+        model = artist
         fields = "__all__"
 
-class CourseForm(ModelForm):
+class durationForm(ModelForm):
     class Meta:
-        model = Course
+        model = duration
         fields = "__all__"
 
-class StudentForm(ModelForm):
+class titleForm(ModelForm):
     class Meta:
-        model = Student
+        model = title
         fields = "__all__"
 
-class EnrollmentForm(ModelForm):
+class albumsForm(ModelForm):
     class Meta:
-        model = Enrollment
+        model = albums
         fields = "__all__"
 
-class AssignmentForm(ModelForm):
-    Deadline = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+class date_addedForm(ModelForm):
+    date_added = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     class Meta:
-        model = Assignment
+        model = date_added
         fields = "__all__"
 
-class GradeForm(ModelForm):
-    class Meta:
-        model = Grade
-        fields = "__all__"
+

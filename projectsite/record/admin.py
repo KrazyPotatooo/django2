@@ -1,33 +1,27 @@
 from django.contrib import admin
-from .models import Professor, Course, Student, Enrollment, Assignment, Grade
-# Register your models here.
+from .models import artist, duration, title, albums, date_added
 
-@admin.register(Professor)
-class ProfessorAdmin(admin. ModelAdmin):
-    list_display = ("FirstName", "LastName", "Email", "Department","created_at","updated_at")
-    search_fields = ("FirstName", "LastName", "Email", "Department")
+@admin.register(artist)
+class artistAdmin(admin.ModelAdmin):
+    list_display = ("FirstName", "LastName", "Email", "created_at", "updated_at")
+    search_fields = ("FirstName", "LastName", "Email",)
 
-@admin.register(Course)
-class CourseAdmin(admin. ModelAdmin):
-    list_display = ("CourseName", "Department", "ProfessorID","created_at","updated_at")
-    search_fields = ("CourseName", "Department", "ProfessorID__FirstName", "ProfessorID__LastName", "ProfessorID__Email")
+@admin.register(duration)
+class durationAdmin(admin.ModelAdmin):
+    list_display = ("durationName", "artistID", "created_at", "updated_at")
+    search_fields = ("durationName", "artistID__FirstName", "artistID__LastName", "artistID__Email")
 
-@admin.register(Student)
-class StudentAdmin(admin. ModelAdmin):
-    list_display = ("FirstName", "LastName", "Email","created_at","updated_at")
-    search_fields = ("FirstName", "LastName", "Email")
+@admin.register(title)
+class titleAdmin(admin. ModelAdmin):
+    list_display = ("SongName", "Artist", "Duration","created_at","updated_at")
+    search_fields = ("SongName", "Artist", "Duration")
 
-@admin.register(Enrollment)
-class EnrollmentAdmin(admin. ModelAdmin):
-    list_display = ("StudentID", "CourseID","created_at","updated_at")
-    search_fields = ("StudentID__FirstName", "StudentID__LastName", "CourseID__CourseName")
+@admin.register(albums)
+class albumsAdmin(admin. ModelAdmin):
+    list_display = ("titleID", "durationID","created_at","updated_at")
+    search_fields = ("titleID__FirstName", "titleID__LastName", "durationID__durationName")
 
-@admin.register(Assignment)
-class AssignmentAdmin(admin. ModelAdmin):
-    list_display = ("AssignmentName", "Deadline", "CourseID","created_at","updated_at")
-    search_fields = ("AssignmentName", "CourseID__CourseName")
+class date_addedAdmin(admin.ModelAdmin):
+    list_display = ('Song_Added', 'durationID')
+    search_fields = ("Song_Added", "durationID__durationName")
 
-@admin.register(Grade)
-class GradeAdmin(admin. ModelAdmin):
-    list_display = ("StudentID", "AssignmentID", "Score","created_at","updated_at")
-    search_fields = ("StudentID__FirstName", "StudentID__LastName", "AssignmentID__AssignmentName")

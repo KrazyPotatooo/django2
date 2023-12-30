@@ -10,19 +10,18 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
-    <title>{% block title %} PALAWAN STATE UNIVERSITY {% endblock %}</title>
+    <title>{% block title %}IT'S ALL ABOUT MUSIC {% endblock %}</title>
   </head>
   <body>
 
     <!-- navbar -->
     <section class="navbar">
       <a href="{% url 'home' %}" class="btn" id="active"> Home </a>
-      <a href="{% url 'professor-list' %}" class="btn"> Professor </a>
-      <a href="{% url 'student-list' %}" class="btn"> Student </a>
-      <a href="{% url 'enrollment-list' %}" class="btn"> Enrollment </a>
-      <a href="{% url 'course-list' %}" class="btn"> Course </a>
-      <a href="{% url 'assignment-list' %}" class="btn"> Assignment </a>
-      <a href="{% url 'grade-list' %}" class="btn"> Grade </a>
+      <a href="{% url 'artist-list' %}" class="btn"> Artist </a>
+      <a href="{% url 'title-list' %}" class="btn"> Title </a>
+      <a href="{% url 'albums-list' %}" class="btn"> Albums </a>
+      <a href="{% url 'duration-list' %}" class="btn"> Duration </a>
+      <a href="{% url 'date_added-list' %}" class="btn"> Date_added </a>
     </section>
 
     <!-- Main content of your webpage -->
