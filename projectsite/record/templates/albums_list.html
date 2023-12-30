@@ -11,21 +11,22 @@
           <th>Song</th>
           <th>Action</th>
         </tr>
-        {% for album in object_list %}  <!-- Fix the variable name to 'album' -->
+        {% for albums in object_list %}  <!-- Change the variable name to 'album' -->
         <tr>
-          <td>{{ album.StudentID.FirstName }} {{ album.StudentID.LastName }}</td>
-          <td>{{ album.CourseID.CourseName }}</td>
+          <td>{{ albums.artist }} </td>
+            {{ albums.song}}</td>  <!-- Use 'album.artist' and 'album.song' -->
+          <td>{{ albums.song}}</td>  <!-- Adjust as per your model structure -->
           <td>
-            <a href="{% url 'albums-update' pk=album.id %}">Edit</a> |  <!-- Use 'album.id' -->
-            <a href="{% url 'albums-delete' pk=album.id %}">Delete</a>
+            <a href="{% url 'albums-update' pk=albums.pk %}">Edit</a> |  <!-- Use 'album.pk' -->
+            <a href="{% url 'albums-delete' pk=albums.pk %}">Delete</a>
           </td>
         </tr>
         {% empty %}
-                <tr>
-                <td colspan="3" style="text-align: center;">
-                    <p>No Records Found</p>
-                </td>
-                </tr>
+        <tr>
+          <td colspan="3" style="text-align: center;">
+            <p>No Records Found</p>
+          </td>
+        </tr>
         {% endfor %}
       </tbody>
     </table>

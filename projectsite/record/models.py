@@ -26,25 +26,25 @@ class duration(BaseModel):
         return self.durationName
 
 class title(BaseModel):
-    SongName = models.AutoField(primary_key=True)
-    Artist = models.CharField(max_length=255)
-    Duration = models.CharField(max_length=255)
+    titleID = models.AutoField(primary_key=True)
+    FirstName = models.CharField(max_length=255)
+    LastName = models.CharField(max_length=255)
+    Email = models.EmailField()
   
     def __str__(self):
         return f"{self.FirstName} {self.LastName}"
 
 class albums(BaseModel):
-    titleID = models.ForeignKey(title, on_delete=models.CASCADE)
-    durationID = models.ForeignKey(duration, on_delete=models.CASCADE)
+    song = models.ForeignKey(title, on_delete=models.CASCADE, default=1)  # Example default value '1'
+    artist = models.ForeignKey(duration, on_delete=models.CASCADE)
 
 class date_added(BaseModel):
     date_addedID = models.AutoField(primary_key=True)
-    Song_Added = models.CharField(max_length=255, default="YourDefaultValueHere")
-    durationID = models.ForeignKey(duration, on_delete=models.CASCADE)
     date_addedName = models.CharField(max_length=255)
+    Deadline = models.DateField()
+    durationID = models.ForeignKey(duration, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.date_addedName
-
 
 
